@@ -68,9 +68,5 @@ cd order-service && mvn test
 - Deploy to AWS: images in ECR, run on ECS Fargate, RDS PostgreSQL, Amazon MSK for Kafka, logs in CloudWatch
 - Replace the log line with real email via AWS SES
 
-## Resume bullets (edit numbers to match what you measure)
-**Order Events Platform** | Java, Spring Boot, Kafka, PostgreSQL, Docker
-- Built an event-driven order system with two Spring Boot microservices communicating over Apache Kafka
-- Implemented the transactional outbox pattern to guarantee no lost events between PostgreSQL writes and Kafka publishes
 - Designed idempotent consumers with retry, backoff and a dead-letter topic to handle duplicate and malformed messages
 - Containerised the stack with Docker Compose; managed schema with Flyway; wrote unit tests with JUnit and Mockito
