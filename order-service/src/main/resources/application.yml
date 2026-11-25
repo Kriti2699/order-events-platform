@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:postgresql://localhost:5433/orders_db
+    username: app
+    password: app
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+app:
+  topics:
+    order-created: order.created
